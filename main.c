@@ -273,7 +273,7 @@ int main(int argc, char**argv)
 	CassCluster* cluster = cass_cluster_new();
   	CassSession* session = cass_session_new();
   	cass_cluster_set_contact_points(cluster, "127.0.0.1");
-	CassFuture* connect_future  = cass_session_connect_keyspace(session, cluster, "test");
+	CassFuture* connect_future  = cass_session_connect(session, cluster);
   	CassError rc = cass_future_error_code(connect_future);
 	cli(session);	
 	cass_future_free(connect_future);
